@@ -2,6 +2,41 @@
   Effects
   ===========================*/
 s.effects = {
+    push: (function (s) {                
+        var height;
+        return {
+            setTranslate: function() {
+                // TODO: figure out a better way, maybe use Dom7
+                height = height || s.slides[0].offsetHeight;
+                // TODO: add horizontal condition switch
+                // TODO: move the following code into swiper source, or find an extending solution
+                // note: s.slides is not an array, but an object with `length` property
+                var ty, tx, scale;
+                var progress;
+                var slide;              
+                for (var i = 0; i < s.slides.length; i++) {
+                    // note: slide is a Dom7 instance
+                    // see #http://www.idangero.us/framework7/docs/dom.html
+                    slide = s.slides.eq(i);
+                    progress = slide[0].progress;
+
+                    // NOTE: `s.activeIndex` doesn't help here, 
+                    // since it changes as soon as active slide passes the middle point
+                    // `progress`: when nothing changes, it's 0, -1, -2
+                    // when we have reached the second page: 1, 0, -1 ...
+                    if (progress >= 0 && progress <= 1) {                                
+                        ty = progress * height * 0.8;
+                        scale = 1 - progress * 0.3;
+                        slide.transform('translate3d(' + 0 + 'px, ' + ty + 'px, 0px) scale(' + scale + ')');
+                    }
+                }
+            },
+            setTransition: function(duration) {
+                s.slides.transition(duration);          
+            }
+
+        }
+    })(s),
     fade: {
         fadeIndex: null,
         setTranslate: function () {

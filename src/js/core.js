@@ -260,6 +260,14 @@ if (s.params.effect === 'fade') {
         s.params.virtualTranslate = true;
     }
 }
+if (s.params.effect == 'push') {
+    s.params.watchSlidesProgress = true;
+    if(s.params.direction == 'horizontal') {
+        console.error("note that currently we do not support horizontal swipe when using push fx");
+    }
+    // not helping:
+    // s.params.direction = 'vertical';
+}
 
 // Grab Cursor
 if (s.params.grabCursor && s.support.touch) {
