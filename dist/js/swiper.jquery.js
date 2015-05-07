@@ -10,7 +10,7 @@
  * 
  * Licensed under MIT
  * 
- * Released on: May 6, 2015
+ * Released on: May 7, 2015
  */
         (function () {
             'use strict';
@@ -21,11 +21,11 @@
         var Swiper = function (container, params) {
             if (!(this instanceof Swiper)) return new Swiper(container, params);
 
-        var defaults = {
-            direction: 'horizontal',
+        var defaults = {    
+            direction: 'vertical', // 'horizontal'
             touchEventsTarget: 'container',
             initialSlide: 0,
-            speed: 300,
+            speed: 200, // 300
             // autoplay
             autoplay: false,
             autoplayDisableOnInteraction: true,
@@ -41,7 +41,7 @@
             // Virtual Translate
             virtualTranslate: false,
             // Effects
-            effect: 'slide', // 'slide' or 'fade' or 'cube' or 'coverflow'
+            effect: 'push', // 'slide' or 'fade' or 'cube' or 'coverflow'
             coverflow: {
                 rotate: 50,
                 stretch: 0,
@@ -82,7 +82,7 @@
             simulateTouch: true,
             shortSwipes: true,
             longSwipes: true,
-            longSwipesRatio: 0.5,
+            longSwipesRatio: 0.33,
             longSwipesMs: 300,
             followFinger: true,
             onlyExternal: false,
@@ -2000,7 +2000,7 @@
                             // when we have reached the second page: 1, 0, -1 ...
                             if (progress >= 0 && progress <= 1) {                                
                                 ty = progress * height * 0.8;
-                                scale = 1 - progress * 0.3;
+                                scale = 1 - progress * 0.25;
                                 slide.transform('translate3d(' + 0 + 'px, ' + ty + 'px, 0px) scale(' + scale + ')');
                             }
                         }

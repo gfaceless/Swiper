@@ -26,7 +26,7 @@ s.effects = {
                     // when we have reached the second page: 1, 0, -1 ...
                     if (progress >= 0 && progress <= 1) {                                
                         ty = progress * height * 0.8;
-                        scale = 1 - progress * 0.3;
+                        scale = 1 - progress * 0.25;
                         slide.transform('translate3d(' + 0 + 'px, ' + ty + 'px, 0px) scale(' + scale + ')');
                     }
                 }

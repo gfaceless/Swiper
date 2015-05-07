@@ -1,8 +1,8 @@
-var defaults = {
-    direction: 'horizontal',
+var defaults = {    
+    direction: 'vertical', // 'horizontal'
     touchEventsTarget: 'container',
     initialSlide: 0,
-    speed: 300,
+    speed: 200, // 300
     // autoplay
     autoplay: false,
     autoplayDisableOnInteraction: true,
@@ -18,7 +18,7 @@ var defaults = {
     // Virtual Translate
     virtualTranslate: false,
     // Effects
-    effect: 'slide', // 'slide' or 'fade' or 'cube' or 'coverflow'
+    effect: 'push', // 'slide' or 'fade' or 'cube' or 'coverflow'
     coverflow: {
         rotate: 50,
         stretch: 0,
@@ -59,7 +59,7 @@ var defaults = {
     simulateTouch: true,
     shortSwipes: true,
     longSwipes: true,
-    longSwipesRatio: 0.5,
+    longSwipesRatio: 0.33,
     longSwipesMs: 300,
     followFinger: true,
     onlyExternal: false,
