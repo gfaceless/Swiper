@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>hdx</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<link rel="stylesheet" href="../dist/css/swiper.css">
+	<style>
+	html,
+	body {
+		margin: 0;
+		height: 100%;
+	}
+	
+	.my-app {
+		/*overflow:hidden: 这个据以前的我说能提升性能 需要再测试 (还是说要加在.swiper-slide上?)*/
+		
+		overflow: hidden;
+		/*容器必须有体积，这是唯一的要求*/
+		/*为此有时需要html{height:100%;}*/
+		
+		height: 100%;
+		background: #ffffff;
+	}
+
+	.h-app {
+		overflow: hidden;
+		height: 50%;
+		top: 50%;
+		-webkit-transform: translateY(-50%);
+		        transform: translateY(-50%);
+	}
+
+	
+	.page {
+		background-size: cover;		
+	}
+
+	.page1 {
+		background-image: url("1.jpg");
+	}
+	
+	.page2 {
+		
+		background-image: url("2.jpg");
+	}
+	
+	.page3 {
+
+		background-image: url("3.jpg");
+	}
+
+	.h-page1 {
+		background-image: url("h1.jpg");
+	}
+	
+	.h-page2 {
+
+		background-image: url("h2.jpg");
+	}
+	
+	.h-page3 {
+		
+		background-image: url("h3.jpg");
+	}
+
+	.btn {
+		display: block;
+		
+		position: absolute;
+		bottom: 10px;
+
+		left: 50%;
+		margin-left: -50px;
+		width: 100px;
+		height: 80px;
+		line-height: 80px;
+		font-size: 80px;
+		text-align: center;
+		border: 1px solid teal;
+	}
+	</style>
+</head>
+
+<body>
+	<div class="my-app swiper-container">
+		<div class="swiper-wrapper">
+			<div class="swiper-slide page1 page">
+				
+			</div>
+			<div class="swiper-slide page2 page">
+				<div class="h-app swiper-container">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide h-page1 page">
+						</div>
+						<div class="swiper-slide h-page2 page"></div>
+						<div class="swiper-slide h-page3 page"></div>
+					</div>
+				</div>
+				<a href="" class="btn">0</a>
+			</div>
+			<div class="swiper-slide page3 page"></div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript" src="../dist/js/swiper.js"></script>
+<script>
+
+var s = new Swiper('.my-app', {
+	onSlideChangeEnd: function(s) {
+		if (s.activeIndex === 1) {
+			// animation goes here:
+			return;
+		}
+	}
+});
+
+var btn = document.querySelector(".btn");
+var hSwiper = new Swiper('.h-app', {
+	direction: 'horizontal',	
+	effect: "slide",	
+	onSlideChangeEnd: function(s) {
+		btn.innerText = s.activeIndex;
+	}
+})
+
+
+</script>
+
+</html>
