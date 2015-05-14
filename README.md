@@ -19,6 +19,10 @@ API:
 
 Examples
 --------
-[最基本的](demos/simple.html)
+[最基本](demos/simple.html)
 
-[横滚嵌入+循环](demos/nested.html)
+[横滚嵌入+每屏单元素+满宽](demos/nested.html)
+
+[横滚嵌入+每屏多元素+循环](demos/nested3.html)
+
+[横滚嵌入+每屏单元素+非满宽+循环](demos/nested4.html)
